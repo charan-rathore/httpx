@@ -318,7 +318,7 @@ def urlparse(url: str = "", **kwargs: str | None) -> ParseResult:
     parsed_scheme: str = scheme.lower()
     parsed_userinfo: str = quote(userinfo, safe=USERINFO_SAFE)
     parsed_host: str = encode_host(host)
-    parsed_port: int | None = normalize_port(port, scheme)
+    parsed_port: int | None = normalize_port(port, parsed_scheme)
 
     has_scheme = parsed_scheme != ""
     has_authority = (
